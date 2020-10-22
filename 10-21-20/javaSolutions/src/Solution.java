@@ -5,7 +5,7 @@ public class Solution {
     if (target.equals("")) { return true; }
 
     for (String prefix : subs) {
-      if (prefix.equals(target.substring(0, prefix.length()))) {
+      if (target.startsWith(prefix)) {
         String remainder = target.substring(prefix.length());
 
         if (canConstruct(remainder, subs)) { return true; }
@@ -22,7 +22,7 @@ public class Solution {
     for (String prefix : subs) {
       if (prefix.length() > target.length()) { return null; }
 
-      if (prefix.equals(target.substring(0, prefix.length()))) {
+      if (target.startsWith(prefix)) {
         String remainder = target.substring(prefix.length());
         ArrayList<String> result = howConstruct(remainder, subs);
 
